@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-05-06T17:45:17Z" product-name="rkw_projects">
+		<header/>
+		<body>
+
+            <!-- tx_rkwprojects_domain_model_projects -->
+			<trans-unit id="tx_rkwprojects_domain_model_projects">
+				<source>RKW Projects: Projects</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.short_name">
+				<source>Short Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.internal_name">
+				<source>Internal Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.partner_logos">
+				<source>Partner Logos</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.project_pid">
+				<source>Project Pid</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.project_staff">
+				<source>Project Staff</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.project_manager">
+				<source>Project Manager</source>
+			</trans-unit>
+			 <trans-unit id="tx_rkwprojects_domain_model_projects.sys_category" approved="yes">
+				<source>System categories</source>
+			</trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.visibility">
+                <source>Visibility</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.visibility.I.visible">
+                <source>Show in search filter</source>
+            </trans-unit>
+
+
+            <!-- tx_rkwprojects_domain_model_pages -->
+			<trans-unit id="tx_rkwprojects_domain_model_pages">
+				<source>Pages</source>
+			</trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_pages.tx_rkwprojects_project_uid">
+                <source>Project Uid</source>
+            </trans-unit>
+
+
+            <!-- tx_rkwprojects_domain_model_authors -->
+            <trans-unit id="tx_rkwprojects_domain_model_authors">
+				<source>Authors</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

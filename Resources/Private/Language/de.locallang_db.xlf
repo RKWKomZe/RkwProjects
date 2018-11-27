@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-03T15:56:40Z" product-name="rkw_projects">
+		<header/>
+		<body>
+
+            <!--tx_rkwprojects_domain_model_projects -->
+            <trans-unit id="tx_rkwprojects_domain_model_projects" approved="yes">
+                <source>RKW Projects: Projects</source>
+                <target>RKW Projects: Projekte</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.name" approved="yes">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.short_name" approved="yes">
+                <source>Short Name</source>
+                <target>Kurzname</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.internal_name" approved="yes">
+                <source>Internal Name</source>
+                <target>Interner Projektname (NICHT OHNE RÜCKSPRACHE ÄNDERN!)</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.partner_logos" approved="yes">
+                <source>Partner Logos</source>
+                <target>Partner Logos</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.project_pid" approved="yes">
+                <source>Project Pid</source>
+                <target>Projekt-Hauptseite</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.project_staff" approved="yes">
+                <source>Project Staff</source>
+                <target>Projektmitarbeiter</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.project_manager" approved="yes">
+                <source>Project Manager</source>
+                <target>Projektleiter</target>
+            </trans-unit>
+			<trans-unit id="tx_rkwprojects_domain_model_projects.sys_category" approved="yes">
+				<source>System categories</source>
+				<target>Kategorien</target>
+			</trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.visibility">
+                <source>Visibility</source>
+                <target>Sichtbarkeit</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.visibility.I.visible">
+                <source>Show in search filter</source>
+                <target>In Suchfilter anzeigen</target>
+            </trans-unit>
+
+
+            <!-- tx_rkwprojects_domain_model_pages -->
+            <trans-unit id="tx_rkwprojects_domain_model_pages" approved="yes">
+                <source>Pages</source>
+                <target>Seiten</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_pages.tx_rkwprojects_project_uid" approved="yes">
+                <source>Project Uid</source>
+                <target>Projekt</target>
+            </trans-unit>
+
+
+            <!-- tx_rkwprojects_domain_model_authors -->
+            <trans-unit id="tx_rkwprojects_domain_model_authors" approved="yes">
+                <source>Authors</source>
+                <source>Autoren</source>
+            </trans-unit>
+
+        </body>
+	</file>
+</xliff>
