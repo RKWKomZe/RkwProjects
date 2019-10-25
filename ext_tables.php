@@ -27,4 +27,8 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
-?>
+//=================================================================
+// Add tables
+//=================================================================
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_rkwprojects_domain_model_projects', 'EXT:rkw_projects/Resources/Private/Language/locallang_csh_tx_rkwprojects_domain_model_projects.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_rkwprojects_domain_model_projects');
