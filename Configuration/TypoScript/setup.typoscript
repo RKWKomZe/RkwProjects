@@ -1,0 +1,62 @@
+config.tx_extbase{
+    persistence{
+        classes{
+
+            \RKW\RkwBasics\Domain\Model\Pages {
+                subclasses {
+                    Tx_RkwProject_Pages = RKW\RkwProjects\Domain\Model\Pages
+                }
+            }
+
+            RKW\RkwProjects\Domain\Model\Pages {
+                mapping {
+                    tableName = pages
+
+					# on pages tables it's the doktype
+					# if we set an value, we filter by it
+					# if we do not set anything, all pages are found
+					recordType =
+                }
+            }
+
+            RKW\RkwProjects\Domain\Model\Authors {
+                mapping {
+                    tableName = tx_rkwauthors_domain_model_authors
+					recordType =
+                }
+            }
+
+            RKW\RkwProjects\Domain\Model\MediaFileMeta {
+                mapping {
+                    tableName = sys_file_metadata
+                    recordType =
+                }
+            }
+
+			RKW\RkwProjects\Domain\Model\SysCategory {
+				mapping {
+					tableName = sys_category
+					recordType =
+				}
+			}
+    	}
+    }
+}
+
+
+
+plugin.tx_rkwprojects {
+
+	view {
+		templateRootPath = {$plugin.tx_rkwprojects.view.templateRootPath}
+		partialRootPath = {$plugin.tx_rkwprojects.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_rkwprojects.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_rkwprojects.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
