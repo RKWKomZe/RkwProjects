@@ -10,7 +10,7 @@
  * "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
 	'title' => 'RKW Projects',
 	'description' => 'Extension for handling projects',
 	'category' => 'plugin',
@@ -21,18 +21,16 @@ $EM_CONF[$_EXTKEY] = array(
 	'uploadfolder' => '0',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '7.6.11',
-	'constraints' => array(
-		'depends' => array(
+	'version' => '8.7.0',
+	'constraints' => [
+		'depends' => [
 			'typo3' => '7.6.0-7.6.99',
-			'extbase' => '7.6.0-7.6.99',
-			'fluid' => '7.5.0-7.6.99',
-			'rkw_basics' => '7.6.12-8.7.99',
-			'rkw_authors' => '7.6.10-8.7.99',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
-);
+			'rkw_basics' => '8.7.0-8.7.99',
+			'rkw_authors' => '8.7.0-8.7.99',
+		],
+		'conflicts' => [
+		],
+		'suggests' => [
+		],
+	],
+];
