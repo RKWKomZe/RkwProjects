@@ -27,7 +27,9 @@ call_user_func(
         //=================================================================
         // Add Rootline fields
         //=================================================================
-        $TYPO3_CONF_VARS['FE']['addRootLineFields'] .= ',tx_rkwprojects_project_uid';
+        $rootlineFields = &$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'];
+        $newRootlineFields = 'tx_rkwprojects_project_uid';
+        $rootlineFields .= (empty($rootlineFields))? $newRootlineFields : ',' . $newRootlineFields;
 
     },
     $_EXTKEY

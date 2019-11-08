@@ -7,12 +7,12 @@ return [
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'dividers2tabs' => TRUE,
+		'dividers2tabs' => true,
 		//'sortby' => 'sorting',
 		'default_sortby' => 'ORDER BY short_name, name',
 
 		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
+		'versioning_followPages' => true,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
