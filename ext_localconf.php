@@ -1,25 +1,38 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
-}
+defined('TYPO3_MODE') || die('Access denied.');
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'RKW.' . $_EXTKEY,
-	'Projectstaff',
-	array(
-		'Projects' => 'listStaff, ',
-		'Pages' => '',
-		
-	),
-	// non-cacheable actions
-	array(
-		'Projects' => '',
-		'Pages' => '',
-		
-	)
+call_user_func(
+    function($extKey)
+    {
+
+        //=================================================================
+        // Configure Plugin
+        //=================================================================
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'RKW.' . $extKey,
+            'Projectstaff',
+            array(
+                'Projects' => 'listStaff, ',
+                'Pages' => '',
+
+            ),
+            // non-cacheable actions
+            array(
+                'Projects' => '',
+                'Pages' => '',
+
+            )
+        );
+
+        //=================================================================
+        // Add Rootline fields
+        //=================================================================
+        $rootlineFields = &$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'];
+        $newRootlineFields = 'tx_rkwprojects_project_uid';
+        $rootlineFields .= (empty($rootlineFields))? $newRootlineFields : ',' . $newRootlineFields;
+
+    },
+    $_EXTKEY
 );
 
-
-// Add rootline-Fields
-$TYPO3_CONF_VARS['FE']['addRootLineFields'] .= ',tx_rkwprojects_project_uid';
 
