@@ -1,28 +1,24 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
-}
+$tempColumnsMedia = [
 
-$tempColumnsMedia = array(
-
-    'columns' => array(
-        'tx_rkwprojects_project_uid' => array(
+    'columns' => [
+        'tx_rkwprojects_project_uid' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_pages.tx_rkwprojects_project_uid',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_rkwprojects_domain_model_projects',
                 'foreign_table_where' => 'AND sys_language_uid = ###REC_FIELD_sys_language_uid### ORDER BY name ASC',
                 'minitems' => 0,
                 'maxitems' => 1,
-                'items' => array(
-                    array('---', NULL),
-                ),
-            ),
-        ),
-    ),
-);
+                'items' => [
+                    ['---', NULL],
+                ],
+            ],
+        ],
+    ],
+];
 
 
 // insert columns
