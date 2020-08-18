@@ -8,13 +8,15 @@ config.tx_extbase{
                 }
             }
 
+            \TYPO3\CMS\Extbase\Domain\Model\Category {
+                subclasses {
+                    Tx_RkwProject_Category = RKW\RkwProjects\Domain\Model\SysCategory
+                }
+            }
+
             RKW\RkwProjects\Domain\Model\Pages {
                 mapping {
                     tableName = pages
-
-					# on pages tables it's the doktype
-					# if we set an value, we filter by it
-					# if we do not set anything, all pages are found
 					recordType =
                 }
             }
