@@ -18,13 +18,12 @@ namespace RKW\RkwProjects\Domain\Model;
 /**
  * Class SysCategory
  *
- * @author Maximilian Fäßler <maximilian@faesslerweb.de>
  * @author Steffen Kroggel <developer@steffenkroggel.de>
  * @copyright Rkw Kompetenzzentrum
  * @package RKW_RkwProjects
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class SysCategory extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class SysCategory extends \TYPO3\CMS\Extbase\Domain\Model\Category
 {
 
 
