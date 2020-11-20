@@ -156,7 +156,7 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,required'
+				'eval' => 'trim,alphanum,required'
 			],
 		],
 		'partner_logos' => [
