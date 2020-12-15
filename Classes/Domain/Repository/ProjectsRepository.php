@@ -51,14 +51,15 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query = $this->createQuery();
         $query->setOrderings(
             array(
+                'pid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
                 'internalName' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
                 'name'         => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
             )
         );
 
         return $query->execute();
-        //===
     }
+
 
 
     /**

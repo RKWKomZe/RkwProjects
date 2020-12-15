@@ -27,10 +27,10 @@ return [
 		'iconfile' => 'EXT:rkw_projects/Resources/Public/Icons/tx_rkwprojects_domain_model_projects.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, visibility, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, visibility, status, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, --palette--;;1,visibility, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, --palette--;;1,visibility, status, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'palettes' => [
 		'1' => ['showitem' => ''],
@@ -130,6 +130,21 @@ return [
                         '0' => 'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.visibility.I.visible'
                     ],
                 ],
+            ],
+        ],
+        'status' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.status',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'items' => [
+                    ['LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.status.I.0', 0],
+                    ['LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.status.I.100', 100],
+                ],
+                'default' => 0,
             ],
         ],
 		'name' => [

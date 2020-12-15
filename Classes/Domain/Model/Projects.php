@@ -58,6 +58,14 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $visibility = 0;
 
+
+    /**
+     * status
+     *
+     * @var integer
+     */
+    protected $status = 0;
+    
     /**
      * partnerLogos
      *
@@ -193,7 +201,6 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getVisibility()
     {
         return $this->visibility;
-        //===
     }
 
     /**
@@ -207,6 +214,29 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->visibility = intval($visibility);
     }
 
+
+    /**
+     * Returns the status
+     *
+     * @return string $type
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+
+    /**
+     * Sets the status
+     *
+     * @param string $status
+     * @return void
+     */
+    public function setStatus($status)
+    {
+        $this->status = intval($status);
+    }
+    
     /**
      * Adds a FileReference
      *
@@ -415,7 +445,6 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the sysCategory
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> $sysCategory
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> sysCategory
      */
     public function setSysCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $sysCategory)
     {
