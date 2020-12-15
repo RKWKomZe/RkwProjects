@@ -8,6 +8,21 @@
 			<trans-unit id="tx_rkwprojects_domain_model_projects">
 				<source>RKW Projects: Projects</source>
 			</trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid" approved="yes">
+                <source>Folder</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.133" approved="yes">
+                <source>RKW KomZe</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.3468" approved="yes">
+                <source>RKW Sachsen-Anhalt</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.3651" approved="yes">
+                <source>RKW Thüringen</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.4788" approved="yes">
+                <source>RKW Bremen</source>
+            </trans-unit>
 			<trans-unit id="tx_rkwprojects_domain_model_projects.name">
 				<source>Name</source>
 			</trans-unit>
@@ -38,7 +53,16 @@
             <trans-unit id="tx_rkwprojects_domain_model_projects.visibility.I.visible">
                 <source>Show in search filter</source>
             </trans-unit>
-
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status.I.0">
+                <source>Current</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status.I.100">
+                <source>Completed</source>
+            </trans-unit>
 
             <!-- tx_rkwprojects_domain_model_pages -->
 			<trans-unit id="tx_rkwprojects_domain_model_pages">

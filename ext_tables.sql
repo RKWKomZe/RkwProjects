@@ -10,6 +10,7 @@ CREATE TABLE tx_rkwprojects_domain_model_projects (
 	short_name varchar(255) DEFAULT '' NOT NULL,
 	internal_name varchar(255) DEFAULT '' NOT NULL,
 	visibility int(11) unsigned DEFAULT '0' NOT NULL,
+    status int(11) unsigned DEFAULT '0' NOT NULL,
 	partner_logos int(11) unsigned DEFAULT '0' NOT NULL,
 	project_pid varchar(255) DEFAULT '' NOT NULL,
 	project_staff int(11) unsigned DEFAULT '0' NOT NULL,

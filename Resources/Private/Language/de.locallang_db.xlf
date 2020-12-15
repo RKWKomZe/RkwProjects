@@ -9,6 +9,26 @@
                 <source>RKW Projects: Projects</source>
                 <target>RKW Projects: Projekte</target>
             </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid" approved="yes">
+                <source>Folder</source>
+                <target>Ordner</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.133" approved="yes">
+                <source>RKW KomZe</source>
+                <target>RKW KomZe</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.3468" approved="yes">
+                <source>RKW Sachsen-Anhalt</source>
+                <target>RKW Sachsen-Anhalt</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.3651" approved="yes">
+                <source>RKW Thüringen</source>
+                <target>RKW Thüringen</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.pid.I.4788" approved="yes">
+                <source>RKW Bremen</source>
+                <target>RKW Bremen</target>
+            </trans-unit>
             <trans-unit id="tx_rkwprojects_domain_model_projects.name" approved="yes">
                 <source>Name</source>
                 <target>Name</target>
@@ -48,6 +68,18 @@
             <trans-unit id="tx_rkwprojects_domain_model_projects.visibility.I.visible">
                 <source>Show in search filter</source>
                 <target>In Suchfilter anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status.I.0">
+                <source>Current</source>
+                <target>Laufend</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwprojects_domain_model_projects.status.I.100">
+                <source>Completed</source>
+                <target>Abgeschlossen</target>
             </trans-unit>
 
 
