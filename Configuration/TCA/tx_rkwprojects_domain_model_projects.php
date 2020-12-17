@@ -171,7 +171,7 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,alphanum,required'
+				'eval' => 'trim,required'
 			],
 		],
 		'partner_logos' => [
