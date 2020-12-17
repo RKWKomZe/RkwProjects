@@ -2,12 +2,6 @@
 
 namespace RKW\RkwProjects\TCA;
 
-use \RKW\RkwEtracker\Utility\CategoryUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use TYPO3\CMS\Fluid\ViewHelpers\TranslateViewHelper;
-use TYPO3\CMS\Lang\Service\TranslationService;
-
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -20,6 +14,9 @@ use TYPO3\CMS\Lang\Service\TranslationService;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+
 
 /**
  * Class SelectOptions
@@ -74,8 +71,8 @@ class SelectOptions
                     'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.status.I.' . $project->getStatus(),
                     'rkw_projects'
                 );
-                $projectName = ($project->getInternalName() ? $project->getInternalName() : $project->getName());
 
+                $projectName = ($project->getShortName() ? $project->getShortName() : $project->getName());
 
                 $extendedNames[$project->getUid()] =
                     $folder
@@ -91,181 +88,4 @@ class SelectOptions
             }
         }
     }
-
-
-    /**
-     * Fetches filter for domain
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getDomainLabels(array &$params, $pObj)
-    {
-
-        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-
-        /** @var \RKW\RkwEtracker\Domain\Repository\SysDomainRepository $sysDomainRepository */
-        $sysDomainRepository = $objectManager->get('RKW\RkwEtracker\Domain\Repository\SysDomainRepository');
-        $result = $sysDomainRepository->findAll();
-
-        /** @var \RKW\RkwEtracker\Domain\Model\SysDomain $sysDomain */
-        foreach ($result as $sysDomain) {
-
-            if ($sysDomain->getDomainName()) {
-
-                // just in case of using a DEV-Environment with LIVE-data
-                $domain = str_replace('.local', '.de', $sysDomain->getDomainName());
-                $params['items'][] = array($domain, $domain);
-
-            }
-        }
-
-    }
-
-    /**
-     * Fetches filter for category level 1
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getCategoryLabelsLevel1(array &$params, $pObj)
-    {
-
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rkw_projects')) {
-
-            /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-            $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-
-            /** @var \RKW\RkwBasics\Domain\Repository\DepartmentRepository $departmentRepository */
-            $departmentRepository = $objectManager->get('RKW\RkwBasics\Domain\Repository\DepartmentRepository');
-            $result = $departmentRepository->findAllSorted();
-
-            /** @var \RKW\RkwBasics\Domain\Model\Department $department */
-            foreach ($result as $department) {
-                if ($department->getName()) {
-                    $params['items'][] = array(($department->getInternalName() ? CategoryUtility::cleanUpCategoryName($department->getInternalName()) : CategoryUtility::cleanUpCategoryName($department->getName())), ($department->getInternalName() ? CategoryUtility::cleanUpCategoryName($department->getInternalName()) : CategoryUtility::cleanUpCategoryName($department->getName())));
-                }
-            }
-        }
-    }
-
-
-    /**
-     * Fetches filter for category level 2
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getCategoryLabelsLevel2(array &$params, $pObj)
-    {
-
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rkw_projects')) {
-
-            /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-            $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-
-            /** @var \RKW\RkwProjects\Domain\Repository\ProjectsRepository $projectRepository */
-            $projectRepository = $objectManager->get('RKW\RkwProjects\Domain\Repository\ProjectsRepository');
-            $result = $projectRepository->findAllSorted();
-
-            $params['items'][] = array('- DEFAULT - ', 'Default');
-
-            /** @var \RKW\RkwProjects\Domain\Model\Projects $project */
-            foreach ($result as $project) {
-                if ($project->getName()) {
-                    $params['items'][] = array(($project->getInternalName() ? CategoryUtility::cleanUpCategoryName($project->getInternalName()) : CategoryUtility::cleanUpCategoryName($project->getName())), ($project->getInternalName() ? CategoryUtility::cleanUpCategoryName($project->getInternalName()) : CategoryUtility::cleanUpCategoryName($project->getName())));
-                }
-            }
-        }
-    }
-
-
-    /**
-     * Fetches filter for category level 3
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getCategoryLabelsLevel3(array &$params, $pObj)
-    {
-
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rkw_projects')) {
-
-            /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-            $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-
-            /** @var \RKW\RkwBasics\Domain\Repository\DocumentTypeRepository $documentTypeRepository */
-            $documentTypeRepository = $objectManager->get('RKW\RkwBasics\Domain\Repository\DocumentTypeRepository');
-            $result = $documentTypeRepository->findAllSorted();
-
-            /** @var \RKW\RkwBasics\Domain\Model\DocumentType $documentType */
-            foreach ($result as $documentType) {
-                if ($documentType->getName()) {
-                    $params['items'][] = array(($documentType->getInternalName() ? CategoryUtility::cleanUpCategoryName($documentType->getInternalName()) : CategoryUtility::cleanUpCategoryName($documentType->getName())), ($documentType->getInternalName() ? CategoryUtility::cleanUpCategoryName($documentType->getInternalName()) : CategoryUtility::cleanUpCategoryName($documentType->getName())));
-                }
-            }
-        }
-    }
-
-
-    /**
-     * Fetches filter for category level 4
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getCategoryLabelsLevel4(array &$params, $pObj)
-    {
-        // nothing here
-    }
-
-    /**
-     * Fetches filter for category level 5
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getCategoryLabelsLevel5(array &$params, $pObj)
-    {
-        // nothing here
-    }
-
-    /**
-     * Get all available download labels
-     *
-     * @params array &$params
-     * @params object $pObj
-     * @return void
-     */
-    public function getDownloadLabels(array &$params, $pObj)
-    {
-
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rkw_projects')) {
-
-            /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-            $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-
-            /** @var \RKW\RkwProjects\Domain\Repository\ProjectsRepository $projectRepository */
-            $projectRepository = $objectManager->get('RKW\RkwProjects\Domain\Repository\ProjectsRepository');
-            $result = $projectRepository->findAllSorted();
-
-            $params['items'][] = array('- DEFAULT - ', 'Default');
-
-            /** @var \RKW\RkwProjects\Domain\Model\Projects $project */
-            foreach ($result as $project) {
-                if ($project->getName()) {
-                    $params['items'][] = array(($project->getInternalName() ? CategoryUtility::cleanUpCategoryName($project->getInternalName()) : CategoryUtility::cleanUpCategoryName($project->getName())), ($project->getInternalName() ? CategoryUtility::cleanUpCategoryName($project->getInternalName()) : CategoryUtility::cleanUpCategoryName($project->getName())));
-                }
-            }
-        }
-    }
-
-
 }
