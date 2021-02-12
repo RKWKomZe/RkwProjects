@@ -16,9 +16,7 @@ $tempColumnsPages = [
             'items' => [
                 ['---', NULL],
             ],
-            'itemsProcFunc' => 'RKW\RkwProjects\TCA\SelectOptions->getExtendedProjectName',
-
-
+            'itemsProcFunc' => 'RKW\RkwProjects\TCA\OptionLabels->getExtendedProjectNamesByUid',
         ],
     ],
 ];
