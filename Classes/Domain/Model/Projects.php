@@ -31,7 +31,6 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * name
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $name = '';
 
@@ -39,7 +38,6 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * shortName
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $shortName = '';
 
@@ -47,7 +45,6 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * internalName
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $internalName = '';
 
