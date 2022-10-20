@@ -31,7 +31,7 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * txRkwprojectsProjectUid
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $txRkwprojectsProjectUid = null;
 

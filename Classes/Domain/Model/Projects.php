@@ -62,12 +62,12 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var integer
      */
     protected $status = 0;
-    
+
     /**
      * partnerLogos
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $partnerLogos = null;
 
@@ -75,7 +75,7 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * projectPid
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $projectPid = null;
 
@@ -90,7 +90,7 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * projectManager
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $projectManager = null;
 
@@ -233,7 +233,7 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->status = intval($status);
     }
-    
+
     /**
      * Adds a FileReference
      *

@@ -35,25 +35,25 @@ return [
 		'1' => ['showitem' => ''],
 	],
 	'columns' => [
-	
+
 		'sys_language_uid' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => [
-					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
-					['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0],
+					['LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', -1],
+					['LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value', 0],
 				],
 			],
 		],
 		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
@@ -71,24 +71,24 @@ return [
 		],
 
 		't3ver_label' => [
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'max' => 255,
 			],
 		],
-	
+
 		'hidden' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
 			'config' => [
 				'type' => 'check',
 			],
 		],
 		'starttime' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -106,7 +106,7 @@ return [
 		],
 		'endtime' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -180,7 +180,7 @@ return [
 		'partner_logos' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_projects.partner_logos',
-			'config' => 
+			'config' =>
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'partnerLogos',
 				['maxitems' => 5],
