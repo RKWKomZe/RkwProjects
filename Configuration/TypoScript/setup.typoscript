@@ -2,13 +2,13 @@ config.tx_extbase{
     persistence{
         classes{
 
-            \RKW\RkwBasics\Domain\Model\Pages {
+            RKW\RkwBasics\Domain\Model\Pages {
                 subclasses {
                     Tx_RkwProject_Pages = RKW\RkwProjects\Domain\Model\Pages
                 }
             }
 
-            \TYPO3\CMS\Extbase\Domain\Model\Category {
+            TYPO3\CMS\Extbase\Domain\Model\Category {
                 subclasses {
                     Tx_RkwProject_Category = RKW\RkwProjects\Domain\Model\SysCategory
                 }

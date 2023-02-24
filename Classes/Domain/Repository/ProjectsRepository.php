@@ -14,12 +14,15 @@ namespace RKW\RkwProjects\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+
 /**
  * Class ProjectsRepository
  *
  * @author Maximilian Fäßler <maximilian@faesslerweb.de>
  * @author Steffen Kroggel <developer@steffenkroggel.de>
- * @copyright Rkw Kompetenzzentrum
+ * @copyright RKW Kompetenzzentrum
  * @package RKW_RkwProjects
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
@@ -30,10 +33,10 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      *
      * @return void
      */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
 
         // don't add the pid constraint
         $querySettings->setRespectStoragePage(false);
@@ -41,12 +44,13 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $this->setDefaultQuerySettings($querySettings);
     }
 
+
     /**
      * findAllSorted
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|array
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findAllSorted()
+    public function findAllSorted(): QueryResultInterface
     {
         $query = $this->createQuery();
         $query->setOrderings(
@@ -62,13 +66,12 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     }
 
 
-
     /**
      * findAllByVisibility
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|array
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findAllByVisibility()
+    public function findAllByVisibility(): QueryResultInterface
     {
         $query = $this->createQuery();
         $query->matching(
@@ -79,7 +82,6 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         );
 
         return $query->execute();
-        //===
     }
 
 
@@ -87,10 +89,10 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * findByVisibilityAndSelection
      *
      * @param mixed $projectsList
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|array
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findByVisibilityAndSelection($projectsList = null)
+    public function findByVisibilityAndSelection($projectsList = null): QueryResultInterface
     {
         $query = $this->createQuery();
         $constraints = array();
@@ -115,6 +117,5 @@ class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         // if no projectsList is given, this execute is equal to a findAll()
         return $query->execute();
-        //===
     }
 }

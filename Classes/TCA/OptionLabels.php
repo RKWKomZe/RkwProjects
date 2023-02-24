@@ -1,5 +1,4 @@
 <?php
-
 namespace RKW\RkwProjects\TCA;
 
 /*
@@ -15,15 +14,17 @@ namespace RKW\RkwProjects\TCA;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwProjects\Domain\Model\Projects;
+use RKW\RkwProjects\Domain\Repository\ProjectsRepository;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-
 
 /**
  * Class OptionLabels
  *
  * @author Steffen Kroggel <developer@steffenkroggel.de>
- * @copyright Rkw Kompetenzzentrum
- * @package RKW_RkwEtracker
+ * @copyright RKW Kompetenzzentrum
+ * @package RKW_RkwProjects
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class OptionLabels
@@ -31,18 +32,18 @@ class OptionLabels
     /**
      * Fetches labels for projects
      *
-     * @params array &$params
-     * @params object $pObj
+     * @param array &$params
+     * @param object $pObj
      * @return void
      */
     public static function getExtendedProjectNamesByUid(array &$params, $pObj): void
     {
 
         /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ObjectManager::class);
 
         /** @var \RKW\RkwProjects\Domain\Repository\ProjectsRepository $projectRepository */
-        $projectRepository = $objectManager->get(\RKW\RkwProjects\Domain\Repository\ProjectsRepository::class);
+        $projectRepository = $objectManager->get(ProjectsRepository::class);
         $result = $projectRepository->findAllSorted();
 
         // build extended names
@@ -68,7 +69,7 @@ class OptionLabels
      * @param \RKW\RkwProjects\Domain\Model\Projects $project
      * @return string
      */
-    public static function getExtendedProjectName(\RKW\RkwProjects\Domain\Model\Projects $project): string
+    public static function getExtendedProjectName(Projects $project): string
     {
 
         $folder = (
