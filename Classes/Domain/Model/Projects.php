@@ -1,5 +1,4 @@
 <?php
-
 namespace RKW\RkwProjects\Domain\Model;
 
 /*
@@ -15,6 +14,9 @@ namespace RKW\RkwProjects\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Class Projects
  *
@@ -28,78 +30,67 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     * name
-     *
      * @var string
      */
-    protected $name = '';
+    protected string $name = '';
+
 
     /**
-     * shortName
-     *
      * @var string
      */
-    protected $shortName = '';
+    protected string $shortName = '';
+
 
     /**
-     * internalName
-     *
      * @var string
      */
-    protected $internalName = '';
+    protected string $internalName = '';
+
 
     /**
-     * visibility
-     *
-     * @var integer
+     * @var int
      */
-    protected $visibility = 0;
+    protected int $visibility = 0;
 
 
     /**
-     * status
-     *
-     * @var integer
+     * @var int
      */
-    protected $status = 0;
+    protected int $status = 0;
+
 
     /**
-     * partnerLogos
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>|null
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $partnerLogos = null;
+    protected ?ObjectStorage $partnerLogos = null;
+
 
     /**
-     * projectPid
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages>|null
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $projectPid = null;
+    protected ?ObjectStorage $projectPid = null;
+
 
     /**
-     * projectStaff
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>|null
      */
-    protected $projectStaff = null;
+    protected ?ObjectStorage $projectStaff = null;
+
 
     /**
-     * projectManager
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>|null
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $projectManager = null;
+    protected ?ObjectStorage $projectManager = null;
+
 
     /**
-     * sysCategory
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory>|null
      */
-    protected $sysCategory = null;
+    protected ?ObjectStorage$sysCategory = null;
+
 
     /**
      * __construct
@@ -110,6 +101,7 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->initStorageObjects();
     }
 
+
     /**
      * Initializes all ObjectStorage properties
      * Do not modify this method!
@@ -118,7 +110,7 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->partnerLogos = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->projectPid = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -127,15 +119,17 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->sysCategory = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
+
     /**
      * Returns the name
      *
      * @return string $name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
+
 
     /**
      * Sets the name
@@ -143,20 +137,22 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param string $name
      * @return void
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
+
 
     /**
      * Returns the shortName
      *
      * @return string $shortName
      */
-    public function getShortName()
+    public function getShortName(): string
     {
         return $this->shortName;
     }
+
 
     /**
      * Sets the shortName
@@ -164,20 +160,22 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param string $shortName
      * @return void
      */
-    public function setShortName($shortName)
+    public function setShortName(string $shortName): void
     {
         $this->shortName = $shortName;
     }
+
 
     /**
      * Returns the internalName
      *
      * @return string $internalName
      */
-    public function getInternalName()
+    public function getInternalName(): string
     {
         return $this->internalName;
     }
+
 
     /**
      * Sets the internalName
@@ -185,39 +183,41 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param string $internalName
      * @return void
      */
-    public function setInternalName($internalName)
+    public function setInternalName(string $internalName): void
     {
         $this->internalName = $internalName;
     }
 
+
     /**
      * Returns the visibility
      *
-     * @return string $type
+     * @return int
      */
-    public function getVisibility()
+    public function getVisibility(): int
     {
         return $this->visibility;
     }
 
+
     /**
      * Sets the visibility
      *
-     * @param string $visibility
+     * @param int $visibility
      * @return void
      */
-    public function setVisibility($visibility)
+    public function setVisibility(int $visibility): void
     {
-        $this->visibility = intval($visibility);
+        $this->visibility = $visibility;
     }
 
 
     /**
      * Returns the status
      *
-     * @return string $type
+     * @return int
      */
-    public function getStatus()
+    public function getStatus(): int
     {
         return $this->status;
     }
@@ -226,13 +226,14 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the status
      *
-     * @param string $status
+     * @param int $status
      * @return void
      */
-    public function setStatus($status)
+    public function setStatus(int $status): void
     {
-        $this->status = intval($status);
+        $this->status = $status;
     }
+
 
     /**
      * Adds a FileReference
@@ -240,31 +241,34 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $partnerLogo
      * @return void
      */
-    public function addPartnerLogo(\TYPO3\CMS\Extbase\Domain\Model\FileReference $partnerLogo)
+    public function addPartnerLogo(FileReference $partnerLogo): void
     {
         $this->partnerLogos->attach($partnerLogo);
     }
 
+
     /**
      * Removes a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $partnerLogoToRemove The FileReference to be removed
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $partnerLogoToRemove
      * @return void
      */
-    public function removePartnerLogo(\TYPO3\CMS\Extbase\Domain\Model\FileReference $partnerLogoToRemove)
+    public function removePartnerLogo(FileReference $partnerLogoToRemove): void
     {
         $this->partnerLogos->detach($partnerLogoToRemove);
     }
 
+
     /**
      * Returns the partnerLogos
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $partnerLogos
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    public function getPartnerLogos()
+    public function getPartnerLogos(): ObjectStorage
     {
         return $this->partnerLogos;
     }
+
 
     /**
      * Sets the partnerLogos
@@ -272,10 +276,11 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $partnerLogos
      * @return void
      */
-    public function setPartnerLogos(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $partnerLogos)
+    public function setPartnerLogos(ObjectStorage $partnerLogos): void
     {
         $this->partnerLogos = $partnerLogos;
     }
+
 
     /**
      * Adds a Pages
@@ -283,18 +288,19 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \RKW\RkwProjects\Domain\Model\Pages $projectPid
      * @return void
      */
-    public function addProjectPid(\RKW\RkwProjects\Domain\Model\Pages $projectPid)
+    public function addProjectPid(Pages $projectPid): void
     {
         $this->projectPid->attach($projectPid);
     }
 
+
     /**
      * Removes a Pages
      *
-     * @param \RKW\RkwProjects\Domain\Model\Pages $projectPidToRemove The Pages to be removed
+     * @param \RKW\RkwProjects\Domain\Model\Pages $projectPidToRemove
      * @return void
      */
-    public function removeProjectPid(\RKW\RkwProjects\Domain\Model\Pages $projectPidToRemove)
+    public function removeProjectPid(Pages $projectPidToRemove): void
     {
         $this->projectPid->detach($projectPidToRemove);
     }
@@ -302,12 +308,13 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the projectPid
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages> $projectPid
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages>
      */
-    public function getProjectPid()
+    public function getProjectPid(): ObjectStorage
     {
         return $this->projectPid;
     }
+
 
     /**
      * Sets the projectPid
@@ -315,53 +322,58 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Pages> $projectPid
      * @return void
      */
-    public function setProjectPid(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $projectPid)
+    public function setProjectPid(ObjectStorage $projectPid): void
     {
         $this->projectPid = $projectPid;
     }
+
 
     /**
      * Adds a TxRkwauthorsDomainModelAuthors
      *
      * @param \RKW\RkwProjects\Domain\Model\Authors $projectStaff
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> projectStaff
+     * @return void
      */
-    public function addProjectStaff(\RKW\RkwProjects\Domain\Model\Authors $projectStaff)
+    public function addProjectStaff(Authors $projectStaff): void
     {
         $this->projectStaff->attach($projectStaff);
     }
 
+
     /**
      * Removes a TxRkwauthorsDomainModelAuthors
      *
-     * @param \RKW\RkwProjects\Domain\Model\Authors $projectStaffToRemove The Authors to be removed
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> projectStaff
+     * @param \RKW\RkwProjects\Domain\Model\Authors $projectStaffToRemove
+     * @return void
      */
-    public function removeProjectStaff(\RKW\RkwProjects\Domain\Model\Authors $projectStaffToRemove)
+    public function removeProjectStaff(Authors $projectStaffToRemove): void
     {
         $this->projectStaff->detach($projectStaffToRemove);
     }
 
+
     /**
      * Returns the projectStaff
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> projectStaff
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>
      */
-    public function getProjectStaff()
+    public function getProjectStaff(): ObjectStorage
     {
         return $this->projectStaff;
     }
+
 
     /**
      * Sets the projectStaff
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> $projectStaff
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> projectStaff
+     * @return void
      */
-    public function setProjectStaff(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $projectStaff)
+    public function setProjectStaff(ObjectStorage $projectStaff)
     {
         $this->projectStaff = $projectStaff;
     }
+
 
     /**
      * Adds a Authors
@@ -369,31 +381,34 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \RKW\RkwProjects\Domain\Model\Authors $projectManager
      * @return void
      */
-    public function addProjectManager(\RKW\RkwProjects\Domain\Model\Authors $projectManager)
+    public function addProjectManager(Authors $projectManager): void
     {
         $this->projectManager->attach($projectManager);
     }
 
+
     /**
      * Removes a Authors
      *
-     * @param \RKW\RkwProjects\Domain\Model\Authors $projectManagerToRemove The Authors to be removed
+     * @param \RKW\RkwProjects\Domain\Model\Authors $projectManagerToRemove
      * @return void
      */
-    public function removeProjectManager(\RKW\RkwProjects\Domain\Model\Authors $projectManagerToRemove)
+    public function removeProjectManager(Authors $projectManagerToRemove): void
     {
         $this->projectManager->detach($projectManagerToRemove);
     }
 
+
     /**
      * Returns the projectManager
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> $projectManager
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors>
      */
-    public function getProjectManager()
+    public function getProjectManager(): ObjectStorage
     {
         return $this->projectManager;
     }
+
 
     /**
      * Sets the projectManager
@@ -401,29 +416,31 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Authors> $projectManager
      * @return void
      */
-    public function setProjectManager(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $projectManager)
+    public function setProjectManager(ObjectStorage $projectManager): void
     {
         $this->projectManager = $projectManager;
     }
+
 
     /**
      * Adds a SysCategory
      *
      * @param \RKW\RkwProjects\Domain\Model\SysCategory $sysCategory
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> sysCategory
+     * @return void
      */
-    public function addSysCategory(\RKW\RkwProjects\Domain\Model\SysCategory $sysCategory)
+    public function addSysCategory(SysCategory $sysCategory): void
     {
         $this->sysCategory->attach($sysCategory);
     }
+
 
     /**
      * Removes a SysCategory
      *
      * @param \RKW\RkwProjects\Domain\Model\SysCategory $sysCategory
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> sysCategory
+     * @return void
      */
-    public function removeSysCategory(\RKW\RkwProjects\Domain\Model\SysCategory $sysCategory)
+    public function removeSysCategory(SysCategory $sysCategory): void
     {
         $this->sysCategory->detach($sysCategory);
     }
@@ -431,19 +448,21 @@ class Projects extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the sysCategory
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> sysCategory
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory>
      */
-    public function getSysCategory()
+    public function getSysCategory(): ObjectStorage
     {
         return $this->sysCategory;
     }
+
 
     /**
      * Sets the sysCategory
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\SysCategory> $sysCategory
+     * @return void
      */
-    public function setSysCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $sysCategory)
+    public function setSysCategory(ObjectStorage $sysCategory): void
     {
         $this->sysCategory = $sysCategory;
     }

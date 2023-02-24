@@ -1,5 +1,4 @@
 <?php
-
 namespace RKW\RkwProjects\Domain\Model;
 
 /*
@@ -28,21 +27,21 @@ class Pages extends \RKW\RkwBasics\Domain\Model\Pages
 {
 
     /**
-     * txRkwprojectsProjectUid
-     *
-     * @var \RKW\RkwProjects\Domain\Model\Projects
+     * @var \RKW\RkwProjects\Domain\Model\Projects|null
      */
-    protected $txRkwprojectsProjectUid = null;
+    protected ?Projects $txRkwprojectsProjectUid = null;
+
 
     /**
      * Returns the txRkwprojectsProjectUid
      *
      * @return \RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid
      */
-    public function getTxRkwprojectsProjectUid()
+    public function getTxRkwprojectsProjectUid(): Projects
     {
         return $this->txRkwprojectsProjectUid;
     }
+
 
     /**
      * Sets the txRkwprojectsProjectUid
@@ -50,7 +49,7 @@ class Pages extends \RKW\RkwBasics\Domain\Model\Pages
      * @param \RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid
      * @return void
      */
-    public function setTxRkwprojectsProjectUid(\RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid)
+    public function setTxRkwprojectsProjectUid(Projects $txRkwprojectsProjectUid): void
     {
         $this->txRkwprojectsProjectUid = $txRkwprojectsProjectUid;
     }

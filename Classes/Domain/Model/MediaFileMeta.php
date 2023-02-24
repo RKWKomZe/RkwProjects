@@ -15,6 +15,8 @@ namespace RKW\RkwProjects\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Class MediaFileMeta
  *
@@ -28,12 +30,11 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     * txRkwprojectsProjectUid
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects>|null
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $txRkwprojectsProjectUid = null;
+    protected ?ObjectStorage $txRkwprojectsProjectUid = null;
+
 
     /**
      * __construct
@@ -44,6 +45,7 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->initStorageObjects();
     }
 
+
     /**
      * Initializes all ObjectStorage properties
      * Do not modify this method!
@@ -52,10 +54,11 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->txRkwprojectsProjectUid = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
+
 
     /**
      * Adds a Projects
@@ -63,10 +66,11 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid
      * @return void
      */
-    public function addTxRkwprojectsProjectUid(\RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid)
+    public function addTxRkwprojectsProjectUid(Projects $txRkwprojectsProjectUid): void
     {
         $this->txRkwprojectsProjectUid->attach($txRkwprojectsProjectUid);
     }
+
 
     /**
      * Removes a Projects
@@ -74,20 +78,22 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUidToRemove The Projects to be removed
      * @return void
      */
-    public function removeTxRkwprojectsProjectUid(\RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUidToRemove)
+    public function removeTxRkwprojectsProjectUid(Projects $txRkwprojectsProjectUidToRemove): void
     {
         $this->txRkwprojectsProjectUid->detach($txRkwprojectsProjectUidToRemove);
     }
 
+
     /**
      * Returns the txRkwprojectsProjectUid
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects> $txRkwprojectsProjectUid
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects>
      */
-    public function getTxRkwprojectsProjectUid()
+    public function getTxRkwprojectsProjectUid(): ObjectStorage
     {
         return $this->txRkwprojectsProjectUid;
     }
+
 
     /**
      * Sets the txRkwprojectsProjectUid
@@ -95,7 +101,7 @@ class MediaFileMeta extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwProjects\Domain\Model\Projects> $txRkwprojectsProjectUid
      * @return void
      */
-    public function setTxRkwprojectsProjectUid(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $txRkwprojectsProjectUid)
+    public function setTxRkwprojectsProjectUid(ObjectStorage $txRkwprojectsProjectUid): void
     {
         $this->txRkwprojectsProjectUid = $txRkwprojectsProjectUid;
     }
