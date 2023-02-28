@@ -37,7 +37,7 @@ class Pages extends \RKW\RkwBasics\Domain\Model\Pages
      *
      * @return \RKW\RkwProjects\Domain\Model\Projects $txRkwprojectsProjectUid
      */
-    public function getTxRkwprojectsProjectUid(): Projects
+    public function getTxRkwprojectsProjectUid():? Projects
     {
         return $this->txRkwprojectsProjectUid;
     }
