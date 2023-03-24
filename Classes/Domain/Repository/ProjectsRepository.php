@@ -14,6 +14,7 @@ namespace RKW\RkwProjects\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Madj2k\CoreExtended\Domain\Repository\StoragePidAwareAbstractRepository;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
@@ -26,24 +27,8 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
  * @package RKW_RkwProjects
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ProjectsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ProjectsRepository extends StoragePidAwareAbstractRepository
 {
-    /**
-     * initializeObject
-     *
-     * @return void
-     */
-    public function initializeObject(): void
-    {
-        /** @var $querySettings \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings */
-        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
-
-        // don't add the pid constraint
-        $querySettings->setRespectStoragePage(false);
-
-        $this->setDefaultQuerySettings($querySettings);
-    }
-
 
     /**
      * findAllSorted
