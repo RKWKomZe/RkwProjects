@@ -28,5 +28,6 @@ call_user_func(
                 'l10n_display' => 'hideDiff',
             )
         );
-    }
-    );
+    },
+    'rkw_projects'
+);
