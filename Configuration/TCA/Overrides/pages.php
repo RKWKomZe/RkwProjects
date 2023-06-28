@@ -7,7 +7,7 @@ call_user_func(
 
             'tx_rkwprojects_project_uid' => [
                 'exclude' => 0,
-                'displayCond' => 'FIELD:tx_rkwpdf2content_is_import_sub:=:0',
+                'displayCond' => (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rkw_pdf2content')? 'FIELD:tx_rkwpdf2content_is_import_sub:=:0' : ''),
                 'label' => 'LLL:EXT:rkw_projects/Resources/Private/Language/locallang_db.xlf:tx_rkwprojects_domain_model_pages.tx_rkwprojects_project_uid',
                 'config' => [
                     'type' => 'select',
