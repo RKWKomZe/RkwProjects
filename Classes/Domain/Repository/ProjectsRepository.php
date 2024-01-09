@@ -30,6 +30,15 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 class ProjectsRepository extends StoragePidAwareAbstractRepository
 {
 
+    public function initializeObject(): void
+    {
+
+        // Fix: always use your own storagePid - even if called through another extension
+        // This is important since the calling parameters (e.g. from opt-in) decide which storagePid takes precedence
+        // Per default the storagePid of the calling extension is used
+        $this->setStoragePids(133);
+    }
+
     /**
      * findAllSorted
      *
