@@ -25,9 +25,6 @@ return [
 		'searchFields' => 'short_name,name',
 		'iconfile' => 'EXT:rkw_projects/Resources/Public/Icons/tx_rkwprojects_domain_model_projects.gif'
 	],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, visibility, status, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff',
-	],
 	'types' => [
 		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, --palette--;;1,visibility, status, name, short_name, internal_name, partner_logos, project_pid, project_manager, project_staff, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
@@ -52,7 +49,6 @@ return [
 		],
 		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
 			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
