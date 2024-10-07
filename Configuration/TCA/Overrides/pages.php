@@ -20,6 +20,7 @@ call_user_func(
                         ['---', NULL],
                     ],
                     'itemsProcFunc' => 'RKW\RkwProjects\TCA\OptionLabels->getExtendedProjectNamesByUid',
+                    'default' => 0,
                 ],
             ],
         ];
