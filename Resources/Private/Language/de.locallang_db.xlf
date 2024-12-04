@@ -35,11 +35,11 @@
             </trans-unit>
             <trans-unit id="tx_rkwprojects_domain_model_projects.project_staff" approved="yes">
                 <source>Project Staff</source>
-                <target>Projektmitarbeiter</target>
+                <target>Projektmitarbeitende</target>
             </trans-unit>
             <trans-unit id="tx_rkwprojects_domain_model_projects.project_manager" approved="yes">
                 <source>Project Manager</source>
-                <target>Projektleiter</target>
+                <target>Projektleiter / Projektleiterin</target>
             </trans-unit>
 			<trans-unit id="tx_rkwprojects_domain_model_projects.sys_category" approved="yes">
 				<source>System categories</source>
